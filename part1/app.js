@@ -41,9 +41,9 @@ app.get('/api/walkers/summary', (req, res) => {
   const sql = `
     SELECT u.username AS walker_username, COUNT(r.rating_id) AS total_ratings,
     ROUND(AVG(r.rating), 1) AS average_rating,
-    COUNT(CAASE WHEN wr.status = 'completed' THEN 1 END) AS completed_walks
+    COUNT(CASE WHEN wr.status = 'completed' THEN 1 END) AS completed_walks
     FROM Users u
-    LEFT JOIN WalkApplications w ON u.user_id = w.walker_id AND w.status = 'accepted'
+    LEFT JOIN WalkApplications wa ON u.user_id = w.walker_id AND w.status = 'accepted'
     LEFT JOIN WalkRequests wr ON wa.request_id = wr.request_id
     LEFT JOIN WalkRatings r ON wr.request_id = r.request_id
     WHERE u.role = 'walker'
