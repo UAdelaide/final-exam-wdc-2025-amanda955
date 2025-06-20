@@ -10,6 +10,7 @@ const PORT = 8080;
 
 //  /api/dogs
 app.get('/api/dogs', (req, res) => {
+  console.log('GET /api/dogs endpoint called');
   const sql = `
     SELECT d.name AS dog_name, d.size, u.username AS owner_username
     FROM Dogs d
