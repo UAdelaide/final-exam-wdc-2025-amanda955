@@ -40,5 +40,5 @@ app.get('/api/walkers/summary', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${8080}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
