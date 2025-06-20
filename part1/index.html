@@ -75,7 +75,8 @@
             },
             methods: {
                 showDog() {
-                    if (this.clickCount < 3) {
+                    this.clickCount++;
+                    if (this.clickCount === 3) {
                         fetch('https://dog.ceo/api/breeds/image/random')
                             .then(response => response.json())
                             .then(data => {
