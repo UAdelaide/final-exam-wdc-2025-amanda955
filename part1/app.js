@@ -10,6 +10,7 @@ const PORT = 8080;
 
 //  /api/dogs
 app.get('/api/dogs', (req, res) => {
+  const sql =
   db.query('SELECT * FROM Dogs', (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(results);
