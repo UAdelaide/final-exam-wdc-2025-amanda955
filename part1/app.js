@@ -15,7 +15,7 @@ app.get('/api/dogs', (req, res) => {
     FROM Dogs d
     JOIN Users u ON d.owner_id = u.user_id;
   `;
-  db.query('SELECT * FROM Dogs', (err, results) => {
+  db.query(sql, (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(results);
   });
