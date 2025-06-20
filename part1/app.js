@@ -18,7 +18,7 @@ app.get('/api/dogs', (req, res) => {
   `;
   db.query(sql, (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.json(results);
+    return res.json(results);
   });
 });
 
