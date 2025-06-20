@@ -11,8 +11,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(session({
     secret:'your-secret-key', // Replace with a strong secret key Q13
     resave: false,
-    
-}))
+    saveUninitialized: false,
+}));
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
