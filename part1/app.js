@@ -19,7 +19,7 @@ app.get('/api/dogs', (req, res) => {
   const sql2 = `
     SELECT name, size, owner_id FROM Dogs;
   `;
-  db.query(sql2, (err, results) => {
+  db.query(sql, (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     return res.json(results);
   });
