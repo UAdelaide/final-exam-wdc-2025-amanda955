@@ -7,7 +7,7 @@ VALUES
 ('amanda434', 'amanda@example.com', 'amandahash434', 'owner'),
 ('iresha623', 'iresha@example.com', 'ireshahash623', 'walker');
 
--- five dogs 
+-- five dogs
 INSERT INTO Dogs (owner_id, name, size)
 VALUES
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
@@ -16,7 +16,7 @@ VALUES
 ((SELECT user_id FROM Users WHERE username = 'amanda434'), 'Rex', 'medium'),
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Tom', 'small');
 
--- Insert five walk requests using subquery to look up dog_id
+-- five walk requests
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
 VALUES
 ((SELECT dog_id FROM Dogs WHERE name = 'Max' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')),
