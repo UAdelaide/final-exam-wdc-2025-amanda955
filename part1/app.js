@@ -30,7 +30,7 @@ app.get('/api/walkrequests/open', (req, res) => {
     JOIN Users u ON d.owner_id = u.user_id
     WHERE wr.status = 'open';
   `;
-  db.query("SELECT * FROM WalkRequests WHERE status = 'open'", (err, results) => {
+  db.query(sql, (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(results);
   });
