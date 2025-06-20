@@ -52,7 +52,9 @@
             Click 3 times to see the dog of the day</p>
 
             <button @click="showDog">Get Dog </button>
-            
+
+            <div v-if="clickCount >= 3">
+                <img :src="dogImage" class="dog-img" alt="Dog of the Day">
 
 
             <div v-if=""
