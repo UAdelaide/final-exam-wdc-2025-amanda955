@@ -38,6 +38,7 @@ app.get('/api/walkrequests/open', (req, res) => {
 
 // /api/walkers/summary
 app.get('/api/walkers/summary', (req, res) => {
+  console.log('GET /api/walkers/summary endpoint called');
   const sql = `
     SELECT u.username AS walker_username, COUNT(r.rating_id) AS total_ratings,
     ROUND(AVG(r.rating), 1) AS average_rating,
