@@ -77,7 +77,11 @@
             methods: {
                 revealDog() {
                     if (this.clickCount < 3) {
-                        this.clickCount++;
+                        fetch('https://dog.ceo/api/breeds/image/random')
+                            .then(response => response.json())
+                            .then(data => {
+                                this.dogImage = data.message;
+                            });
                     }
                 }
             }
