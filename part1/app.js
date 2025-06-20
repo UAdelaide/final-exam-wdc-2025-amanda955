@@ -1,7 +1,7 @@
 // server.js
 const express = require('express');
 const db = require('./db');
-const insertSampleData = require('./insertSampleData');
+
 
 const app = express();
 const PORT = 8080;
