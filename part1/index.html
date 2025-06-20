@@ -56,14 +56,14 @@
             <div v-if="clickCount >= 3">
                 <h2> {{dogName}} the {{dogBreed}} </h2>
                 <img :src="dogImage" class="dog-img" >
-                <p>{{ dogDescription}}</p>
+                <p>{{ dogDescription }}</p>
             </div>
         </div>
     </div>
     <script>
-        const {crearApp } = Vue;
+        const {createApp } = Vue;
 
-        crearApp({
+        createApp({
             Data() {
                 return {
                     dogImage: '',
