@@ -24,7 +24,12 @@ app.get('/api/dogs', (req, res) => {
 // /api/walkrequests/open
 app.get('/api/walkrequests/open', (req, res) => {
   const sql = `
-    SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username`
+    SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username
+    FROM WalkRequests wr
+    JOIN Dogs d ON wr.dog_id = d.dog_id
+    JOIN Users u ON d.owner_id = u.user_id
+    WHERE wr.status = 'open';
+    `
   db.query("SELECT * FROM WalkRequests WHERE status = 'open'", (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(results);
