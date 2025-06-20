@@ -39,7 +39,7 @@ app.get('/api/walkrequests/open', (req, res) => {
 // /api/walkers/summary
 app.get('/api/walkers/summary', (req, res) => {
   const sql = `
-    SELECT u.username AS, COUNT(w.application_id) AS total_applications
+    SELECT u.username AS walker_username, COUNT(r.rating_id) AS total_applications
     FROM Users u
     LEFT JOIN WalkApplications w ON u.user_id = w.walker_id
     WHERE u.role = 'walker'
