@@ -75,7 +75,11 @@
                 };
             },
             methods: {
-                re
+                revealDog() {
+                    if (this.clickCount < 3) {
+                        this.clickCount++;
+                    }
+                }
             }
         })
     </script>
