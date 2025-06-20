@@ -10,7 +10,7 @@ const PORT = 8080;
 
 //  /api/dogs
 app.get('/api/dogs', (req, res) => {
-  const sql = `
+  const sql =
     SELECT d.name AS dog_name, d.size, u.username AS owner_username
     FROM Dogs d
      JOIN Users u ON d.owner_id = u.user_id;
