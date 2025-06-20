@@ -1,0 +1,44 @@
+// server.js
+const express = require('express');
+const db = require('./db');
+const insertSampleData = require('./insertSampleData');
+
+const app = express();
+const PORT = 3000;
+
+insertSampleData();
+
+// Route 1: /api/dogs
+app.get('/api/dogs', (req, res) => {
+  db.query('SELECT * FROM Dogs', (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results);
+  });
+});
+
+// Route 2: /api/walkrequests/open
+app.get('/api/walkrequests/open', (req, res) => {
+  db.query("SELECT * FROM WalkRequests WHERE status = 'open'", (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results);
+  });
+});
+
+// Route 3: /api/walkers/summary
+app.get('/api/walkers/summary', (req, res) => {
+  const sql = `
+    SELECT u.user_id, u.username, COUNT(w.application_id) AS total_applications
+    FROM Users u
+    LEFT JOIN WalkApplications w ON u.user_id = w.walker_id
+    WHERE u.role = 'walker'
+    GROUP BY u.user_id, u.username;
+  `;
+  db.query(sql, (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results);
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
