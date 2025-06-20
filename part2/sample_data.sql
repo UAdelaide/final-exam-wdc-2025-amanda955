@@ -1,7 +1,7 @@
 -- Insert Users
 INSERT INTO Users (username, email, password_hash, role) VALUES
-('amanda434', 'amanda@example.com', 'hashed123', 'owner'),
-('iresha623', 'iresha623@example.com', 'hashed456', 'walker');
+('amanda434', 'amanda@example.com', 'amandahash434', 'owner'),
+('iresha623', 'iresha623@example.com', 'ireshahash623', 'walker');
 
 INSERT INTO Dogs (owner_id, name, size)
 VALUES
