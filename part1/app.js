@@ -11,8 +11,7 @@ const PORT = 8080;
 //  /api/dogs
 app.get('/api/dogs', (req, res) => {
   const sql =
-    `SELECT d.dog_id, d.name, d.breed, d.age, d.weight, u.username AS owner
-     FROM Dogs d
+    `SELECT d.name AS dog_name, d.size
      JOIN Users u ON d.owner_id = u.user_id`;
   db.query('SELECT * FROM Dogs', (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
