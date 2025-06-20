@@ -8,7 +8,7 @@ const PORT = 3000;
 
 insertSampleData();
 
-// Route 1: /api/dogs
+//  /api/dogs
 app.get('/api/dogs', (req, res) => {
   db.query('SELECT * FROM Dogs', (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
@@ -16,7 +16,7 @@ app.get('/api/dogs', (req, res) => {
   });
 });
 
-// Route 2: /api/walkrequests/open
+// /api/walkrequests/open
 app.get('/api/walkrequests/open', (req, res) => {
   db.query("SELECT * FROM WalkRequests WHERE status = 'open'", (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
@@ -24,7 +24,7 @@ app.get('/api/walkrequests/open', (req, res) => {
   });
 });
 
-// Route 3: /api/walkers/summary
+// /api/walkers/summary
 app.get('/api/walkers/summary', (req, res) => {
   const sql = `
     SELECT u.user_id, u.username, COUNT(w.application_id) AS total_applications
