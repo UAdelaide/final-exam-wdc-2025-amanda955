@@ -6,7 +6,7 @@ const db = require('./db');
 const app = express();
 const PORT = 8080;
 
-insertSampleData();
+
 
 //  /api/dogs
 app.get('/api/dogs', (req, res) => {
