@@ -24,7 +24,7 @@ app.get('/api/dogs', (req, res) => {
 // /api/walkrequests/open
 app.get('/api/walkrequests/open', (req, res) => {
   const sql = `
-    SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes `
+    SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username`
   db.query("SELECT * FROM WalkRequests WHERE status = 'open'", (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(results);
