@@ -16,12 +16,12 @@ app.get('/api/dogs', (req, res) => {
     FROM Dogs d
     JOIN Users u ON d.owner_id = u.user_id;
   `;
-  const sql = `
+  const sql2 = `
     SELECT d.name AS dog_name, d.size, u.username AS owner_username
     FROM Dogs d
     JOIN Users u ON d.owner_id = u.user_id;
   `;
-  db.query(sql, (err, results) => {
+  db.query(sql2, (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     return res.json(results);
   });
