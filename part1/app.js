@@ -23,6 +23,7 @@ app.get('/api/dogs', (req, res) => {
 
 // /api/walkrequests/open
 app.get('/api/walkrequests/open', (req, res) => {
+  
   db.query("SELECT * FROM WalkRequests WHERE status = 'open'", (err, results) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(results);
