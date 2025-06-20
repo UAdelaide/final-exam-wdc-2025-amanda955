@@ -51,11 +51,11 @@
             <p> dog of the day <br>
             Click 3 times to see the dog of the day</p>
 
-            <button @click="showDog">Get Dog </button>
+            <button @click="showDog">Get Dog</button>
 
             <div v-if="clickCount >= 3">
                 <h2> {{dogName}} the {{dogBreed}} </h2>
-                <img :src="dogImage" >
+                <img :src="dogImage" class >
 
                 <p> {{dogDescription}}</p>
             </div>
