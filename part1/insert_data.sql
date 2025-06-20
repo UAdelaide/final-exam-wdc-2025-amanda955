@@ -7,7 +7,7 @@ VALUES
 ('amanda434', 'amanda@example.com', 'amandahash434', 'owner'),
 ('iresha623', 'iresha@example.com', 'ireshahash623', 'walker');
 
--- Insert five dogs using subquery to look up owner_id
+-- five dogs 
 INSERT INTO Dogs (owner_id, name, size)
 VALUES
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
