@@ -37,7 +37,7 @@ router.get('/me', (req, res) => {
   res.json(req.session.user);
 });
 
-// POST login (dummy version) - modified t
+// POST login (dummy version) - modified to store user in session q13
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
