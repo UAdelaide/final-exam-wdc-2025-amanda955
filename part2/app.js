@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const app = express();
 
-//
+// session managemnent
 const session = require('express-session');
 
 app.use(session({
