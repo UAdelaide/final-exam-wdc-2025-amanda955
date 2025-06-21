@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-// GET /dogs/:ownerId - Fetch all dogs for a specific owner
+// GET /dogs/:ownerId - Fetch all dogs for a specific user
 router.get('/:ownerId', async (req, res) => {
   const { ownerId } = req.params;
 
