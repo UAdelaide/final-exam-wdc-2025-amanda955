@@ -114,7 +114,7 @@
 
         async function getCurrentUser() {
           try {
-            const response = await fetch('http://localhost:3000/api/users/me', {
+            const response = await fetch('http://localhost:8080/api/users/me', {
               method: 'GET',
               credentials: 'include'
             });
@@ -170,7 +170,7 @@
         }
 
         async function logout() {
-          const response = await fetch('http://localhost:3000/api/users/logout', {
+          const response = await fetch('http://localhost:8080/api/users/logout', {
             method: 'POST',
             credentials: 'include'
           });
