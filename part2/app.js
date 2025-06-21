@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const app = express();
 
-// storing session
+// storing session in express q13
 const session = require('express-session');
 
 app.use(session({
@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
+// dog routes for q
 const dogRoutes = require('./routes/dogRoutes');
 
 app.use('/api/walks', walkRoutes);
