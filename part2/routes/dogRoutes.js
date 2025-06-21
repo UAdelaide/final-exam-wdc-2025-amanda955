@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-// 
+// question 15 - to get dogs for the logged in user
 router.get('/:ownerId', async (req, res) => {
   const { ownerId } = req.params;
 
