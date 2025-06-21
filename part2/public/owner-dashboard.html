@@ -112,7 +112,7 @@
             error.value = 'Could not fetch dogs';
           }
         }
-
+//        // Function to get the current user from the session q15
         async function getCurrentUser() {
           try {
             const response = await fetch('http://localhost:8080/api/users/me', {
@@ -169,7 +169,7 @@
             message.value = '';
           }
         }
-
+// logout 
         async function logout() {
           const response = await fetch('http://localhost:8080/api/users/logout', {
             method: 'POST',
